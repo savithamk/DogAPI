@@ -89,14 +89,22 @@ class DogTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let destination = segue.destination as! DogImageViewController
+        
+        let senderRow: UITableViewCell = sender as! UITableViewCell
+        
+        let breedName:[String] = dogList[(tableView.indexPath(for: senderRow)?.row)!].components(separatedBy: ":")
+        
+        destination.breedName = breedName[0]
+        
     }
-    */
+    
 
 }
